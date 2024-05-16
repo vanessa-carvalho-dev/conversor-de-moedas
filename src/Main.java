@@ -26,44 +26,44 @@ public class Main {
                 **********************************************
                 """;
 
-        System.out.println(menu);
-
         Scanner leituraDoTeclado = new Scanner(System.in);
-        int opcao = leituraDoTeclado.nextInt();
+        int opcao;
 
-        while(opcao != 7){
+        do {
+            System.out.println(menu);
+            opcao = leituraDoTeclado.nextInt();
+
             System.out.println("Digite o valor que deseja converter: ");
             double valor = leituraDoTeclado.nextDouble();
 
             String codigoMoedaOrigem = "";
-            String codigoMoedaDestino= "";
-
-            switch (opcao){
-                case 1:
+            String codigoMoedaDestino = switch (opcao) {
+                case 1 -> {
                     codigoMoedaOrigem = "USD";
-                    codigoMoedaDestino = "BRL";
-                    break;
-                case 2:
+                    yield "BRL";
+                }
+                case 2 -> {
                     codigoMoedaOrigem = "BRL";
-                    codigoMoedaDestino = "USD";
-                    break;
-                case 3:
+                    yield "USD";
+                }
+                case 3 -> {
                     codigoMoedaOrigem = "EUR";
-                    codigoMoedaDestino = "BRL";
-                    break;
-                case 4:
+                    yield "BRL";
+                }
+                case 4 -> {
                     codigoMoedaOrigem = "BRL";
-                    codigoMoedaDestino = "EUR";
-                    break;
-                case 5:
+                    yield "EUR";
+                }
+                case 5 -> {
                     codigoMoedaOrigem = "JPY";
-                    codigoMoedaDestino = "BRL";
-                    break;
-                case 6:
+                    yield "BRL";
+                }
+                case 6 -> {
                     codigoMoedaOrigem = "BRL";
-                    codigoMoedaDestino = "JPY";
-                    break;
-            }
+                    yield "JPY";
+                }
+                default -> "";
+            };
 
             try{
                 ExchangeRateApi exchangeRate = requisicaoParaApiTaxaDeCambio(codigoMoedaOrigem, codigoMoedaDestino);
@@ -75,10 +75,7 @@ public class Main {
                 System.out.println("Algo deu errado");
             }
 
-            System.out.println(menu);
-            opcao = leituraDoTeclado.nextInt();
-
-        }
+        } while (opcao != 7);
 
     }
 
