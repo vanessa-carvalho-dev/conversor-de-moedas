@@ -1,6 +1,7 @@
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.io.IOException;
 import java.net.URI;
@@ -80,7 +81,8 @@ public class Main {
     }
 
     private static ExchangeRateApi requisicaoParaApiTaxaDeCambio(String codigoMoedaOrigem, String codigoMoedaDestino) throws IOException, InterruptedException {
-        String API_KEY = "e8c2a59f795108b991f65119";
+        Dotenv dotenv = Dotenv.load();
+        String API_KEY = dotenv.get("API_KEY");
         String API_URL = "https://v6.exchangerate-api.com/v6/";
         String apiConversao = API_URL + API_KEY + "/pair/" + codigoMoedaOrigem +'/' + codigoMoedaDestino;
 
