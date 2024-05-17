@@ -28,13 +28,14 @@
 2. Obtenha uma API Key em [https://www.exchangerate-api.com](https://www.exchangerate-api.com)
 3. Clone o repositório
 4. Crie um arquivo .env e defina sua API Key
+   
    ![env](/images/env.png)
 
-5. Navegue até o diretório `src` do projeto:
+6. Navegue até o diretório `src` do projeto:
     ```sh 
     cd src 
     ```
-6. Compile o código-fonte `javac Main.java` e execute `java Main`
+7. Compile o código-fonte `javac Main.java` e execute `java Main`
 
 
 
